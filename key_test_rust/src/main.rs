@@ -9,13 +9,16 @@ use generator::generate_random_bits;
 fn main() {
     let bits = generate_random_bits(20000);
     
-    // for i in 0..bits.len() {
-    //    print!("{}", bits[i]);
-    // }
-    // println!();
-    println!("monobit test result: {}", monobit_test(&bits));
-    println!("max series test result: {}", max_series_length_test(&bits));
-    println!("Pokker test result: {}", poker_test(&bits, 4));
-    println!("Pokker test result: {}", series_length_test(&bits));
+    let results = [monobit_test(&bits), max_series_length_test(&bits), poker_test(&bits, 4),series_length_test(&bits)];
+    println!("Monobit test result: {}", results[0]);
+    println!("Max series test result: {}", results[1]);
+    println!("Pokker test result: {}", results[2]);
+    println!("Series test result: {}", results[3]);
+    if (results.iter().filter(|&&res|res == false).count() > 0){
+        println!("20 000 bites aren`t random enough.");
+    }
+    else {
+        println!("20 000 bites are random enough.");
+    }
 
 }

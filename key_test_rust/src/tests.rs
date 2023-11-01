@@ -96,7 +96,7 @@ pub fn series_length_test(bits: &[u8]) -> bool {
     let intervals = [2267, 2733, 1079, 1421, 502, 748, 223, 402, 90, 223, 90, 223];
 
     for i in 0..=5 {
-        println!("{}, {}", one_series_lengths[i], zero_series_lengths[i]);
+        //println!("{}, {}", one_series_lengths[i], zero_series_lengths[i]);
         if ((one_series_lengths[i]>intervals[2*i+1] || one_series_lengths[i]<intervals[2*i]) || (zero_series_lengths[i]>intervals[2*i+1] || zero_series_lengths[i]<intervals[2*i]) ){
             return false;
         }
