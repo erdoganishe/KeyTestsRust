@@ -1,4 +1,7 @@
+mod tests;
+
 use rand::Rng;
+use tests::{monobit_test};
 
 fn generate_random_bits(length: usize) -> Vec<u8> {
     let mut rng = rand::thread_rng();
@@ -18,4 +21,6 @@ fn main() {
     for i in 0..bits.len() {
        print!("{}", bits[i]);
     }
+    println!();
+    println!("monobit test result: {}", monobit_test(&bits));
 }
