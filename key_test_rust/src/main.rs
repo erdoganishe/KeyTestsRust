@@ -1,29 +1,21 @@
 mod tests;
+mod generator;
 
-use rand::Rng;
-use tests::{monobit_test, max_series_length_test, poker_test};
+use tests::{monobit_test, max_series_length_test, poker_test, series_length_test};
+use generator::generate_random_bits;
 
-fn generate_random_bits(length: usize) -> Vec<u8> {
-    let mut rng = rand::thread_rng();
-    let mut random_bits = Vec::with_capacity(length);
-    
-    for _ in 0..length {
-        let random_bit = rng.gen_range(0..=1);
-        random_bits.push(random_bit);
-    }
-    
-    random_bits
-}
+
 
 fn main() {
     let bits = generate_random_bits(20000);
     
-    for i in 0..bits.len() {
-       print!("{}", bits[i]);
-    }
-    println!();
+    // for i in 0..bits.len() {
+    //    print!("{}", bits[i]);
+    // }
+    // println!();
     println!("monobit test result: {}", monobit_test(&bits));
     println!("max series test result: {}", max_series_length_test(&bits));
     println!("Pokker test result: {}", poker_test(&bits, 4));
+    println!("Pokker test result: {}", series_length_test(&bits));
 
 }
