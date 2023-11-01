@@ -1,7 +1,7 @@
 mod tests;
 
 use rand::Rng;
-use tests::{monobit_test};
+use tests::{monobit_test, max_series_length_test};
 
 fn generate_random_bits(length: usize) -> Vec<u8> {
     let mut rng = rand::thread_rng();
@@ -23,4 +23,6 @@ fn main() {
     }
     println!();
     println!("monobit test result: {}", monobit_test(&bits));
+    println!("max series test result: {}", max_series_length_test(&bits));
+    
 }
